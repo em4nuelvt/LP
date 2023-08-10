@@ -80,45 +80,6 @@ int strcomp(char *string1, char *string2) {
 
   return 0;
 }
- /* 
-  if (tamanho1 >= tamanho2) {
-    do {
-      if (string1[i] == string2[i]) {
-        i++;
-      } else {
-        if (string1[i] > string2[i]) {
-          return 1;
-        } else {
-          return -1;
-        }
-      }
-    } while (string2[i] != '\0');
-    if (tamanho1 > tamanho2) {
-      return 1;
-    } else {
-      return 0;
-    }
-
-  } else {
-    do {
-      if (string1[i] == string2[i]) {
-        i++;
-      } else {
-        if (string1[i] > string2[i]) {
-          return 1;
-        } else {
-          return -1;
-        }
-      }
-    } while (string1[i] != '\0');
-    if (tamanho1 < tamanho2) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-}
-*/
 // strcat
 void concat(char *dest, char *src) {
   int tamanho1, tamanho2;
@@ -126,11 +87,12 @@ void concat(char *dest, char *src) {
   tamanho2 = retornaTamanho(src);
   int aux = tamanho1;
 
-  dest = realloc(dest, sizeof(char) + tamanho2);
+  dest = realloc(dest, sizeof(char) + tamanho2+1);
   for (int i = 0; i < tamanho2; i++) {
     dest[aux] = src[i];
     aux++;
   }
+  dest[aux]='\0';
 }
 
 int main(void) {
